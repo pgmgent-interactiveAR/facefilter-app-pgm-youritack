@@ -1,0 +1,35 @@
+.splash{
+    cursor: pointer;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    height: 100%;
+    width: 100%;
+    transform: translate(-50%,-50%);
+    background-color: black;
+    transition: all ease-in-out 600ms;
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+    display : flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items : center;
+    z-index: 11;
+}
+.hidden{
+    transition : 0.5s;
+    display : none;
+  }
+  .splash-header {
+    color : white;
+    font-family : consolas;
+    font-size : 30px;
+
+  }
+  .splash-content{
+    color : white;
+    font-family : consolas;
+    font-size : 20px;
+  }
