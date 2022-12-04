@@ -1,0 +1,34 @@
+        <div class="splash">
+      <div class="splash-header">
+        welcome to face filter
+      </div>
+      <div class="splash-tutorial">
+        on the screen are few buttons you can press to apply a filter option multiple are selectable
+      </div>
+      <p class="splash-continue">
+        press any key to continue
+      </p>
+    </div>
+    
+    <a-scene
+      mindar-face
+      embedded
+      color-space="sRGB"
+      renderer="colorManagement: true, physicallyCorrectLights"
+      vr-mode-ui="enabled: false"
+      device-orientation-permission-ui="enabled: false"
+    >
+      <a-assets>
+        <a-asset-item id="glasses" src="./assets/glasses.glb"></a-asset-item>
+        <a-asset-item id="headModel" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/examples/face-tracking/assets/sparkar/headOccluder.glb"></a-asset-item>
+      </a-assets>
+
+
+      <a-entity mindar-face-target="anchorIndex: 195">
+        <a-gltf-model mindar-face-occluder position="0 -0.3 0.15"rotation="0 0 0" scale="0.065 0.065 0.065" src="#headModel"></a-gltf-model>
+      </a-entity>
+      <a-entity mindar-face-target="anchorIndex: 168">
+        <a-gltf-model rotation="0 0 0" position="0 0 .05" scale="6 6 6" src="#glasses"></a-gltf-model>
+      </a-entity>
+      <a-camera active="false" position="0 0 0"></a-camera>
+    </a-scene>

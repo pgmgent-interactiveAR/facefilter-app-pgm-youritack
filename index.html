@@ -4,8 +4,17 @@
     <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/dist/mindar-face.prod.js"></script>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/dist/mindar-face-aframe.prod.js"></script>
+    <link rel="stylesheet" href="./css/index.css" />
   </head>
   <body>
+    <div class="splash">
+      <div class="splash-header">welcome to face filter</div>
+      <div class="splash-tutorial">
+        on the screen are few buttons you can press to apply a filter option
+        multiple are selectable
+      </div>
+      <p class="splash-continue">press any key to continue</p>
+    </div>
     <a-scene
       mindar-face
       embedded
@@ -15,7 +24,10 @@
       device-orientation-permission-ui="enabled: false"
     >
       <a-assets>
-        <a-asset-item id="glasses" src="./assets/glasses.glb"></a-asset-item>
+        <a-asset-item id="santaHat" src="./assets/glb/santa_hat.glb"></a-asset-item>
+        <a-asset-item id="halo" src="./assets/glb/halo.glb"></a-asset-item>
+        <a-asset-item id="christmasBell" src="./assets/glb/christmas_bell.glb"></a-asset-item>
+        <a-asset-item id="christmasBall" src="./assets/glb/Christmas_green_ball.glb"></a-asset-item>
         <a-asset-item id="headModel" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/examples/face-tracking/assets/sparkar/headOccluder.glb"></a-asset-item>
       </a-assets>
 
@@ -23,10 +35,72 @@
       <a-entity mindar-face-target="anchorIndex: 195">
         <a-gltf-model mindar-face-occluder position="0 -0.3 0.15"rotation="0 0 0" scale="0.065 0.065 0.065" src="#headModel"></a-gltf-model>
       </a-entity>
-      <a-entity mindar-face-target="anchorIndex: 168">
-        <a-gltf-model rotation="0 0 0" position="0 0 .05" scale="6 6 6" src="#glasses"></a-gltf-model>
+      <a-entity mindar-face-target="anchorIndex: 10">
+        <a-gltf-model rotation="0 0 0" position="0 0 -.5" scale=".35 .35 .35" src="#santaHat" visible="false" id="santaHatEntity"></a-gltf-model>
       </a-entity>
+      <a-entity mindar-face-target="anchorIndex: 10">
+        <a-gltf-model rotation="0 0 0" position="0 .6 -.5" scale="6 6 6" src="#halo" visible="false" id="haloEntity"></a-gltf-model>
+      </a-entity>
+      <a-entity mindar-face-target="anchorIndex: 152">
+        <a-gltf-model rotation="0 0 0" position=".38 -3.2 3.4" scale="1 1 1" src="#christmasBell" visible="false" id="christmasBellEntity"></a-gltf-model>
+      </a-entity>
+      <a-entity mindar-face-target="anchorIndex: 132">
+        <a-gltf-model rotation="0 0 0" position="-.02 -.2 -.05" scale=".1 .1 .1" src="#christmasBall" visible="false" id="christmasBallEntityRight"></a-gltf-model>
+      </a-entity>
+      <a-entity mindar-face-target="anchorIndex: 361">
+        <a-gltf-model rotation="0 0 0" position=".02 -.2 -.05" scale=".1 .1 .1" src="#christmasBall" visible="false" id="christmasBallEntityLeft"></a-gltf-model>
+      </a-entity>
+
       <a-camera active="false" position="0 0 0"></a-camera>
     </a-scene>
+    <div class="buttons">
+      <ul class="buttonslist">
+        <li>
+          <input type="checkbox" id="santaHatCheck" class="chk-btn" />
+          <label for="santaHatCheck"
+            ><img
+              src="./assets/svg/christmas-hat-svgrepo-com.svg"
+              alt="santa hat"
+              srcset=""
+              class="button-check_image"
+            />
+          </label>
+        </li>
+        <li>
+          <input type="checkbox" id="haloCheck" class="chk-btn" />
+          <label for="haloCheck"
+            ><img
+              src="./assets/svg/halo.svg"
+              alt="ring"
+              srcset=""
+              class="button-check_image"
+            />
+          </label>
+        </li>
+        <li>
+          <input type="checkbox" id="christmasBellCheck" class="chk-btn" />
+          <label for="christmasBellCheck"
+            ><img
+              src="./assets/svg/christmas bells.svg"
+              alt="christmas bell"
+              srcset=""
+              class="button-check_image"
+            />
+          </label>
+        </li>
+        <li>
+          <input type="checkbox" id="christmasBallCheck" class="chk-btn" />
+          <label for="christmasBallCheck"
+            ><img
+              src="./assets/svg/christmas-ball-svgrepo-com.svg"
+              alt="christmas ball"
+              srcset=""
+              class="button-check_image"
+            />
+          </label>
+        </li>
+      </ul>
+    </div>
   </body>
+  <script src="./scripts/app.js"></script>
 </html>
